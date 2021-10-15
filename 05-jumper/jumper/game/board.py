@@ -11,4 +11,20 @@ class Board:
         return list_of_letters
 
     def put_user_guess(self):
-        user_guess = input("Make a guess: ")
+        amount_guesses = 0
+        list_of_letters = self.word_to_list()
+        all_guesses = []
+        word_printed = []
+        while amount_guesses < 100:
+
+            user_guess = input("Make a guess: ").lower()
+
+            all_guesses.append(user_guess)
+            print(all_guesses)
+
+            for letter in list_of_letters:
+                if user_guess == letter:
+                    print(user_guess)
+                else:
+                    amount_guesses += 1
+                    print("_")
