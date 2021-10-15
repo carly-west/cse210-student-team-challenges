@@ -12,6 +12,7 @@ class Director:
 
         while self.play_again:
             self.get_inputs()
+            self.board.put_user_guess()
 
     def get_inputs(self):
 
