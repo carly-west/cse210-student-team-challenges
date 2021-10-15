@@ -9,7 +9,6 @@ class Word_Bank:
         words = ['amigo', 'sasquach', 'geronimo', 'butter']
         self.rand_word = words[random.randint(0, 3)]
 
-
 '''This code is for the extra
 
 def __init__(self):
