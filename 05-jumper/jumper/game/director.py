@@ -1,6 +1,7 @@
 from game.board import Board
 from game.word_bank import Word_Bank
 
+
 class Director:
     def __init__(self):
 
@@ -14,7 +15,7 @@ class Director:
 
     def get_inputs(self):
 
-        self.board.print()
+        self.board.word_to_list()
 
         again = input("Do you want to play again? [y/n] :")
         if again.lower() == 'y':
@@ -22,4 +23,5 @@ class Director:
         elif again.lower() == 'n':
             self.play_again = False
         else:
-            again = ("That is not a valid input. Please enter 'y' for yes and 'n' for no")
+            again = (
+                "That is not a valid input. Please enter 'y' for yes and 'n' for no")
