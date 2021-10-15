@@ -9,6 +9,7 @@ class Word_Bank:
     def get_random_word(self):
         words = ['amigo', 'sasquach', 'geronimo', 'butter']
         self.rand_word = words[random.randint(0, 3)]
+        return self.rand_word
 
 
 '''This code is for the extra
