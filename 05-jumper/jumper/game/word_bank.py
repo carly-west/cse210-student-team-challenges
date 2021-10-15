@@ -1,6 +1,7 @@
 import random
 # from urllib.request import urlretrieve
 
+
 class Word_Bank:
     def __init__(self):
         self.rand_word = ""
@@ -8,6 +9,7 @@ class Word_Bank:
     def get_random_word(self):
         words = ['amigo', 'sasquach', 'geronimo', 'butter']
         self.rand_word = words[random.randint(0, 3)]
+
 
 '''This code is for the extra
 
