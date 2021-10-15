@@ -1,9 +1,6 @@
 import random
 # from urllib.request import urlretrieve
 
-
-import random
-
 # to access this, just import and call Word_bank()
 
 
