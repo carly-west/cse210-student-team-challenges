@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import random
 # from urllib.request import urlretrieve
 
@@ -22,3 +23,8 @@ main()
 
 def urlretrieve(url, words):
     words = '''
+=======
+"""
+Get random word from word pool and store it into a variable
+"""
+>>>>>>> bdadb63b625dba3cab4024eef8325509b18b6a00
