@@ -1,9 +1,11 @@
 from game.word_bank import Word_Bank
+from game.welcome import Welcome
 
 
 class Board:
     def __init__(self):
         self.word_bank = Word_Bank()
+        self.welcome = Welcome()
 
     def word_to_list(self):
         word = str(self.word_bank.get_random_word())
@@ -11,37 +13,52 @@ class Board:
         return list_of_letters
 
     def put_user_guess(self):
+        amount_turns = 9
         amount_guesses = 0
         list_of_letters = self.word_to_list()
         all_guesses = []
         letter_dashed = []
+        gameOver = False
 
-        for i in list_of_letters:
-            letter_dashed.append("_")
+        while amount_guesses < amount_turns and not gameOver:
+            for i in list_of_letters:
+                letter_dashed.append("_")
 
-        while list_of_letters != letter_dashed:
+            while list_of_letters != letter_dashed:
 
-            user_guess = input("Make a guess: ").lower()
+                user_guess = input("Make a guess: ").lower()
 
-            if user_guess.isnumeric():
-                print("Silly goose, you need to input a letter!")
+                if user_guess.isnumeric():
+                    print("Silly goose, you need to input a letter!")
 
-            elif user_guess in all_guesses:
-                print("Silly goose, you have already guessed that!")
+                elif user_guess in all_guesses:
+                    print("Silly goose, you have already guessed that!")
 
-            elif len(user_guess) > 1:
-                print("Silly goose, only input one letter!")
+                elif len(user_guess) > 1:
+                    print("Silly goose, only input one letter!")
 
-            else:
-                all_guesses.append(user_guess)
-                print(all_guesses)
+                elif letter_dashed == list_of_letters:
+                    # WHY ISN'T THIS WORKING?!?!?!?!?!?
 
+                    # This just starts over, and then adds another word onto the end
+                    # of it, I DONT KNOW WHY
+                    print(f"Great job, {self.welcome.welcome_user}")
+                    gameOver = True
 
-                if user_guess in list_of_letters:
-                    for i in range(len(list_of_letters)):
-                        if user_guess == list_of_letters[i]:
-                            letterIndex = i
-                            letter_dashed[letterIndex] = user_guess
-                print()
-                print(' '.join(letter_dashed))
-                print()
+                else:
+                    all_guesses.append(user_guess)
+                    print(all_guesses)
+                    print(letter_dashed)
+                    print(list_of_letters)
+                    if user_guess in list_of_letters:
+                        for i in range(len(list_of_letters)):
+                            if user_guess == list_of_letters[i]:
+                                letterIndex = i
+                                letter_dashed[letterIndex] = user_guess
+
+                    else:
+                        print(f"{user_guess} was not in the word.")
+                        amount_guesses += 1
+                    print()
+                    print(' '.join(letter_dashed))
+                    print()
