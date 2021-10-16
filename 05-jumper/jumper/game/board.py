@@ -23,11 +23,14 @@ class Board:
 
             user_guess = input("Make a guess: ").lower()
 
-            if user_guess in all_guesses:
+            if user_guess.isnumeric():
+                print("Silly goose, you need to input a letter!")
+
+            elif user_guess in all_guesses:
                 print("Silly goose, you have already guessed that!")
 
-            elif type(user_guess) != str:
-                print("Silly goose, you need to input a letter!")
+            elif len(user_guess) > 1:
+                print("Silly goose, only input one letter!")
 
             else:
                 all_guesses.append(user_guess)
@@ -39,5 +42,6 @@ class Board:
                         if user_guess == list_of_letters[i]:
                             letterIndex = i
                             letter_dashed[letterIndex] = user_guess
-
+                print()
                 print(' '.join(letter_dashed))
+                print()

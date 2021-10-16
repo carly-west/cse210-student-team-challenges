@@ -7,7 +7,7 @@ class Word_Bank:
         self.rand_word = ""
 
     def get_random_word(self):
-        words = ['amigoa', 'sasquach', 'geronimo', 'butter']
+        words = ['amigo', 'sasquach', 'geronimo', 'butter']
         self.rand_word = words[random.randint(0, 3)]
         return self.rand_word
 
