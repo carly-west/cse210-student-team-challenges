@@ -1,23 +1,67 @@
-# from game.board import Board
+from game.console import Console
 
 """
 Display and update jumping mans parachute
 """
+class Jumper:
+    def __init__(self):
+        self.line = ("_ _ _ _ _")
+        self.row1 = ("  ___  ")
+        self.row2 = (" /___\ ")
+        # self.row2a = ("|     | ")
+        self.row3 = (" \   / ")
+        self.row4 = ("  \ /  ")
+        self.person1 = ("   0   \n  /|\  \n  / \  \n^^^^^^^")
+        self.person2 = ("   X   \n  /|\  \n  / \  \n^^^^^^^")
 
-print("_ _ _ _ _")
+    def print_jumper(self, wrong_guesses):
 
-row1 = ("  ___  ")
-row2 = (" /___\ ")
-# row2a = ("|     | ")
-row3 = (" \   / ")
-row4 = ("  \ /  ")
-person = ("   0   \n  /|\  \n  / \  \n^^^^^^^")
+        if wrong_guesses == 0:
+            print(f"{self.line}\n")
 
+            print(self.row1)
+            print(self.row2)
+            # print(row2a)
+            print(self.row3)
+            print(self.row4)
+            print(self.person1)
 
-print(row1)
-print(row2)
-# print(row2a)
-print(row3)
-print(row4)
+        elif wrong_guesses == 1:
+            print(f"{self.line}\n")
 
-print(person)
+            print(self.row2)
+            # print(row2a)
+            print(self.row3)
+            print(self.row4)
+            print(self.person1)
+
+        elif wrong_guesses == 2:
+            print(f"{self.line}\n")
+
+            # print(row2a)
+            print(self.row3)
+            print(self.row4)
+            print(self.person1)
+
+        elif wrong_guesses == 3:
+            print(f"{self.line}\n")
+
+            # print(row2a)
+            print(self.row4)
+            print(self.person1)
+
+        elif wrong_guesses == 4:
+            print(f"{self.line}\n")
+
+            print(self.person2)
+
+def main(self):
+
+    console = Console()
+    wrong_guesses = self.console.get_bad_guess()
+
+    jumper = Jumper()
+    jumper.print_jumper(wrong_guesses)
+
+if __name__ == "__main__":
+    main()
