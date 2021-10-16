@@ -18,7 +18,7 @@ class Director:
 
         self.board.word_to_list()
 
-        again = input("Do you want to play again? [y/n] :")
+        again = input("Do you want to play jumper? [y/n] :")
         if again.lower() == 'y':
             self.play_again = True
         elif again.lower() == 'n':

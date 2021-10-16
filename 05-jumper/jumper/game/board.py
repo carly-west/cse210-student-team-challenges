@@ -19,7 +19,7 @@ class Board:
         for i in list_of_letters:
             letter_dashed.append("_")
 
-        while amount_guesses < 100:
+        while list_of_letters != letter_dashed:
 
             user_guess = input("Make a guess: ").lower()
 
@@ -35,7 +35,7 @@ class Board:
             else:
                 all_guesses.append(user_guess)
                 print(all_guesses)
-                print(list_of_letters)
+
 
                 if user_guess in list_of_letters:
                     for i in range(len(list_of_letters)):
