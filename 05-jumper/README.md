@@ -35,6 +35,6 @@ root                    (project root folder)
 ## Authors
 ---
 * Carly West
-  Sierra Davenport
-  Dexter Davenport
-  Rodrigo Sanchez
+* Sierra Davenport
+* Dexter Davenport
+* Rodrigo Sanchez
