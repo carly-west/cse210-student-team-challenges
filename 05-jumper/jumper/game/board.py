@@ -24,7 +24,7 @@ class Board:
             for i in list_of_letters:
                 letter_dashed.append("_")
 
-            while list_of_letters != letter_dashed:
+            while not gameOver:
 
                 user_guess = input("Make a guess: ").lower()
 
@@ -37,14 +37,6 @@ class Board:
                 elif len(user_guess) > 1:
                     print("Silly goose, only input one letter!")
 
-                elif letter_dashed == list_of_letters:
-                    # WHY ISN'T THIS WORKING?!?!?!?!?!?
-
-                    # This just starts over, and then adds another word onto the end
-                    # of it, I DONT KNOW WHY
-                    print(f"Great job, {self.welcome.welcome_user}")
-                    gameOver = True
-
                 else:
                     all_guesses.append(user_guess)
                     print(all_guesses)
@@ -55,6 +47,11 @@ class Board:
                             if user_guess == list_of_letters[i]:
                                 letterIndex = i
                                 letter_dashed[letterIndex] = user_guess
+                            if letter_dashed == list_of_letters:
+                                print("heyyyy")
+                                print(
+                                    f"Great job, {self.welcome.welcome_user()}")
+                                gameOver = True
 
                     else:
                         print(f"{user_guess} was not in the word.")
