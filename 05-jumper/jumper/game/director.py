@@ -1,22 +1,24 @@
 from game.board import Board
 from game.word_bank import Word_Bank
-from game.welcome import Welcome
 
 
 class Director:
     def __init__(self):
-        self.welcome = Welcome()
         self.play_again = True
         self.board = Board()
+        self.isFirstGame = True
 
     def start_game(self):
         isFirstGame = True
-        if isFirstGame == False and self.play_again == True:
-            self.get_inputs()
-            self.board.put_user_guess()
-        else:
-            self.welcome.welcome_user()
-            self.board.put_user_guess()
+        while self.play_again:
+            if isFirstGame == False and self.play_again:
+                self.get_inputs()
+                self.board.put_user_guess()
+            elif isFirstGame == True:
+                print()
+                print("Welcome to Jumper!")
+                self.board.put_user_guess()
+                isFirstGame = False
 
     def get_inputs(self):
 
@@ -27,6 +29,10 @@ class Director:
             self.play_again = True
         elif again.lower() == 'n':
             self.play_again = False
+            print()
+            print("Thank you for playing jumper! Have a nice day.")
+            print()
+            exit()
         else:
             again = (
                 "That is not a valid input. Please enter 'y' for yes and 'n' for no")

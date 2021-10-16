@@ -1,11 +1,12 @@
-from game.console import Console
+# from game.console import Console
 
 """
 Display and update jumping mans parachute
 """
+
+
 class Jumper:
     def __init__(self):
-        self.line = ("_ _ _ _ _")
         self.row1 = ("  ___  ")
         self.row2 = (" /___\ ")
         # self.row2a = ("|     | ")
@@ -17,7 +18,6 @@ class Jumper:
     def print_jumper(self, wrong_guesses):
 
         if wrong_guesses == 0:
-            print(f"{self.line}\n")
 
             print(self.row1)
             print(self.row2)
@@ -27,7 +27,6 @@ class Jumper:
             print(self.person1)
 
         elif wrong_guesses == 1:
-            print(f"{self.line}\n")
 
             print(self.row2)
             # print(row2a)
@@ -36,7 +35,6 @@ class Jumper:
             print(self.person1)
 
         elif wrong_guesses == 2:
-            print(f"{self.line}\n")
 
             # print(row2a)
             print(self.row3)
@@ -44,24 +42,25 @@ class Jumper:
             print(self.person1)
 
         elif wrong_guesses == 3:
-            print(f"{self.line}\n")
 
             # print(row2a)
             print(self.row4)
             print(self.person1)
 
         elif wrong_guesses == 4:
-            print(f"{self.line}\n")
-
+            print()
             print(self.person2)
+            print()
+
 
 def main(self):
 
-    console = Console()
+    # console = Console()
     wrong_guesses = self.console.get_bad_guess()
 
     jumper = Jumper()
     jumper.print_jumper(wrong_guesses)
 
-if __name__ == "__main__":
-    main()
+
+# if __name__ == "__main__":
+#     main()
