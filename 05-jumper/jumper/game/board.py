@@ -14,17 +14,30 @@ class Board:
         amount_guesses = 0
         list_of_letters = self.word_to_list()
         all_guesses = []
-        word_printed = []
+        letter_dashed = []
+
+        for i in list_of_letters:
+            letter_dashed.append("_")
+
         while amount_guesses < 100:
 
             user_guess = input("Make a guess: ").lower()
 
-            all_guesses.append(user_guess)
-            print(all_guesses)
+            if user_guess in all_guesses:
+                print("Silly goose, you have already guessed that!")
 
-            for letter in list_of_letters:
-                if user_guess == letter:
-                    print(user_guess)
-                else:
-                    amount_guesses += 1
-                    print("_")
+            elif type(user_guess) != str:
+                print("Silly goose, you need to input a letter!")
+
+            else:
+                all_guesses.append(user_guess)
+                print(all_guesses)
+                print(list_of_letters)
+
+                if user_guess in list_of_letters:
+                    for i in range(len(list_of_letters)):
+                        if user_guess == list_of_letters[i]:
+                            letterIndex = i
+                            letter_dashed[letterIndex] = user_guess
+
+                print(' '.join(letter_dashed))
