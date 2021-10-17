@@ -1,6 +1,9 @@
 import random
 # from urllib.request import urlretrieve
 
+'''
+Holds the list of words and picks one at random for the code
+'''
 
 class Word_Bank:
     def __init__(self):

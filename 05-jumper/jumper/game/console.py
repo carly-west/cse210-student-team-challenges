@@ -1,3 +1,0 @@
-"""
-Trigger user inputs
-"""

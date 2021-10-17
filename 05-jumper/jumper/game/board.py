@@ -1,6 +1,9 @@
 from game.word_bank import Word_Bank
 from game.jumper import Jumper
 
+"""
+Fetches results and shows board
+"""
 
 class Board:
     def __init__(self):
@@ -27,6 +30,9 @@ class Board:
                 letter_dashed.append("_")
 
             while not gameOver:
+                '''
+                Checks what the user inputed and runs game accordingly
+                '''
                 if letter_dashed == list_of_letters:
                     print()
                     print(f"Great job! You guessed the word!")
@@ -51,6 +57,9 @@ class Board:
                     print()
 
                 if not gameOver:
+                    '''
+                    Checks if the the user already guessed the letter or put something other than a letter
+                    '''
                     if user_guess.isnumeric():
                         print("Silly goose, you need to input a letter!")
                     elif not user_guess or user_guess.isspace():
@@ -65,7 +74,6 @@ class Board:
                     else:
                         all_guesses.append(user_guess)
                         # print(list_of_letters)
-
                         if user_guess in list_of_letters:
                             for i in range(len(list_of_letters)):
                                 if user_guess == list_of_letters[i]:
@@ -73,6 +81,9 @@ class Board:
                                     letter_dashed[letterIndex] = user_guess
 
                         else:
+                            '''
+                            if they guessed a new letter that is not in the word
+                            '''
                             print(
                                 f"The letter '{user_guess}' was not in the word.")
                             amount_guesses += 1
