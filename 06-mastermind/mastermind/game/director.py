@@ -5,6 +5,7 @@ from game.player import Player
 from game.random_num import Random_Num
 from game.roster import Roster
 
+
 class Director:
     def __init__(self):
         self._board = Board()
@@ -13,7 +14,7 @@ class Director:
         self._keep_playing = True
         self._move = Move()
         self._roster = Roster()
-        
+        self.name_list = []
 
     def start_game(self):
         self._prepare_game()
@@ -21,22 +22,27 @@ class Director:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
-        
+
     def _prepare_game(self):
+
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
+            self.name_list.append(name)
             player = Player(name)
             self._roster.add_player(player)
 
+        print(self.name_list)
 
     def _get_inputs(self):
-        
+
         # display the game board
         board = self._board.to_string()
         self._console.write(board)
         # get next player's move
         player = self._roster.get_current()
-        
+
+        self._board.print_screen(player, guess, comparison)
+
         # self._console.write(f"{player.get_name()}'s turn:")
         # pile = self._console.read_number("What pile to remove from? ")
         # stones = self._console.read_number("How many stones to remove? ")
