@@ -24,5 +24,17 @@ class Move:
             # Compare guess to list
             for i in guess:
                 if i in rand_num:
-                    rand_to_print.replace(i, "O")
-            print(rand_to_print)
+                    spot = -1
+                    rand_to_print = ['*', '*', '*', '*']
+
+                    for i in guess:
+                        spot += 1
+                        if i in rand_num:
+                            rand_to_print[spot] = "O"
+
+
+                        if rand_num[spot] == guess[spot]:
+                            rand_to_print[spot] = 'X'
+            return rand_to_print
+
+
