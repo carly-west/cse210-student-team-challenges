@@ -25,13 +25,12 @@ class Director:
 
     def _prepare_game(self):
 
+        self.rand_num = self._number.generate_random_number()
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             self.name_list.append(name)
             player = Player(name)
             self._roster.add_player(player)
-
-        print(self.name_list)
 
     def _get_inputs(self):
 
@@ -41,13 +40,15 @@ class Director:
         # get next player's move
         player = self._roster.get_current()
 
+        self._console.write(f"{player.get_name()}'s turn:")
+        guess = self._console.read_number("What is your guess?")
+
+        comparison = self._move.compare_guess(guess, self.rand_num)
+
         self._board.print_screen(player, guess, comparison)
 
-        # self._console.write(f"{player.get_name()}'s turn:")
-        # pile = self._console.read_number("What pile to remove from? ")
-        # stones = self._console.read_number("How many stones to remove? ")
         # move = Move(stones, pile)
-        player.set_move(move)
+        # player.set_move(move)
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
