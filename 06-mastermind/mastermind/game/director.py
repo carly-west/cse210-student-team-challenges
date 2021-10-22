@@ -36,10 +36,11 @@ class Director:
         self._console.write(board)
         # get next player's move
         player = self._roster.get_current()
-        self._console.write(f"{player.get_name()}'s turn:")
-        pile = self._console.read_number("What pile to remove from? ")
-        stones = self._console.read_number("How many stones to remove? ")
-        move = Move(stones, pile)
+        
+        # self._console.write(f"{player.get_name()}'s turn:")
+        # pile = self._console.read_number("What pile to remove from? ")
+        # stones = self._console.read_number("How many stones to remove? ")
+        # move = Move(stones, pile)
         player.set_move(move)
 
     def _do_updates(self):
@@ -60,6 +61,6 @@ class Director:
             self._keep_playing = False
         self._roster.next_player()
 
-        rand_num = self._number.generate_random_number()
-        rand_string = self.move.number_to_list(self, rand_num)
-        print(rand_string)
+        # rand_num = self._number.generate_random_number()
+        # rand_string = self.move.number_to_list(self, rand_num)
+        # print(rand_string)
