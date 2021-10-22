@@ -7,17 +7,17 @@ from game.roster import Roster
 
 class Director:
     def __init__(self):
-        self.number = Random_Num()
+        self._number = Random_Num()
         self._console = Console()
         self._keep_playing = True
+        self._move = Move()
         
 
     def start_game(self):
-        number = self.number.generate_random_number()
         self._prepare_game()
         while self._keep_playing:
             self._get_inputs()
-            self._do_updates()
+            # self._do_updates()
             self._do_outputs()
         
     def _prepare_game(self):
@@ -25,6 +25,7 @@ class Director:
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             player = Player(name)
             self._roster.add_player(player)
+
 
     def _get_inputs(self):
         
@@ -46,3 +47,7 @@ class Director:
             print(f"\n{name} won!")
             self._keep_playing = False
         self._roster.next_player()
+
+        rand_num = self._number.generate_random_number()
+        rand_string = self.move.number_to_list(self, rand_num)
+        print(rand_string)
