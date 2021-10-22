@@ -11,6 +11,7 @@ class Director:
         self._console = Console()
         self._keep_playing = True
         self._move = Move()
+        self._roster = Roster()
         
 
     def start_game(self):
