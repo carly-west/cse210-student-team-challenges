@@ -32,9 +32,6 @@ class Move:
                         if i in rand_num:
                             rand_to_print[spot] = "O"
 
-
                         if rand_num[spot] == guess[spot]:
                             rand_to_print[spot] = 'X'
             return rand_to_print
-
-
