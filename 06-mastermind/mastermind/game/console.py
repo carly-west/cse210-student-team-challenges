@@ -1,8 +1,5 @@
 '''takes input and hands it back'''
 
-import random
-
-
 class Console:
     """A code template for a computer console. The responsibility of this 
     class of objects is to get text or numerical input and display text output.

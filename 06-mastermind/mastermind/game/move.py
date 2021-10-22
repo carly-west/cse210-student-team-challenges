@@ -2,4 +2,7 @@
 
 class Move:
     def __init__(self):
-        pass
+        self
+
+    # def compare_guess(self, number, guess):
+    #     if guess == number:
