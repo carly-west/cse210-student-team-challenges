@@ -12,4 +12,4 @@ class Board:
         print(f"Player {name}: {guess_str}, {comparison_str} ")
 
     def print_line(self):
-        print('-----------------------')
+        print('\n-----------------------\n')
