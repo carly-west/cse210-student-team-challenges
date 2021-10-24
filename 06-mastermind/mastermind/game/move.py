@@ -1,4 +1,5 @@
 '''takes the guess and compares it to the generated number'''
+import sys
 
 
 class Move:
@@ -16,9 +17,15 @@ class Move:
     def compare_guess(self, guess, rand_num):
         # guess_list = self.number_to_list(guess)
         # rand_num_list = self.number_to_list(rand_num)
+        
         if guess == rand_num:
-            print('You win!!!')
+            print('\nYou Won!!!')
+            exit()
+            # self.is_winner = True
+            # rand_to_print = True
+            # return rand_to_print
         elif guess != rand_num:
+            # comparison = False
             # rand_num = ['4', '5', '3', '2']
             # guess = ['3', '7', '2', '9']
             # rand_to_print = ['*', '*', '*', '*']

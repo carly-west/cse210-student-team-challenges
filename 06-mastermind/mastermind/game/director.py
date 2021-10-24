@@ -45,7 +45,7 @@ class Director:
 
         player = self._roster.get_current()
 
-        self._console.write(f"{player.get_name()}'s turn:")
+        self._console.write(f"\n{player.get_name()}'s turn:")
         guess = self._console.read_number("What is your guess? ")
         
         guess = self._move.number_to_list(guess)
@@ -56,6 +56,7 @@ class Director:
         comparison = self._move.compare_guess(guess, self.rand_num)
 
         self._board.print_line()
+        
         for name in self.name_list:
             self._board.print_screen(name, guess, comparison)
         self._board.print_line()

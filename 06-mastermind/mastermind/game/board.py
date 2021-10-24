@@ -10,7 +10,7 @@ class Board:
 
         strings = [str(integer) for integer in guess]
         guess_str = "". join(strings)
-
+        # while not comparison:
         comparison_str = "".join(comparison)
         print(f"Player {name}: {guess_str}, {comparison_str} ")
 
