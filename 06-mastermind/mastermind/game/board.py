@@ -7,7 +7,6 @@ class Board:
         print(f"Player {name}: ----, ****")
 
     def print_screen(self, name, guess, comparison):
-        print(f'comparison {comparison}')
 
         strings = [str(integer) for integer in guess]
         guess_str = "". join(strings)

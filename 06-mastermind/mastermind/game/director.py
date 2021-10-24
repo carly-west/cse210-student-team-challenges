@@ -29,7 +29,6 @@ class Director:
     def _prepare_game(self):
         self.rand_num = self._number.generate_random_number()
         # self.rand_num_list = [int(x) for x in str(self.rand_num)]
-        print(self.rand_num)
 
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
@@ -55,16 +54,16 @@ class Director:
             self.rand_num = [int(x) for x in str(self.rand_num)]
 
         comparison = self._move.compare_guess(guess, self.rand_num)
-        
-        if comparison == True:
-            self.is_winner = True
-            return
 
         self._board.print_line()
         for name in self.name_list:
             self._board.print_screen(name, guess, comparison)
         self._board.print_line()
-        
+
+        if comparison == True:
+            self.is_winner = True
+
+    def _do_updates(self):
         """Updates the important game information for each round of play. In
         this case, that means updating the board with the current move.
         Args:

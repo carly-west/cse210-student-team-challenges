@@ -16,7 +16,9 @@ class Move:
     def compare_guess(self, guess, rand_num):
         # guess_list = self.number_to_list(guess)
         # rand_num_list = self.number_to_list(rand_num)
-        while guess != rand_num:
+        if guess == rand_num:
+            print('You win!!!')
+        elif guess != rand_num:
             # rand_num = ['4', '5', '3', '2']
             # guess = ['3', '7', '2', '9']
             # rand_to_print = ['*', '*', '*', '*']
