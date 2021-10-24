@@ -17,6 +17,8 @@ class Director:
         self.name_list = []
         self.is_winner = False
 
+        
+
     def start_game(self):
         self._prepare_game()
         while self._keep_playing:
@@ -25,8 +27,10 @@ class Director:
             self._do_outputs()
 
     def _prepare_game(self):
-
         self.rand_num = self._number.generate_random_number()
+        # self.rand_num_list = [int(x) for x in str(self.rand_num)]
+        print(self.rand_num)
+
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             self.name_list.append(name)
@@ -44,21 +48,23 @@ class Director:
 
         self._console.write(f"{player.get_name()}'s turn:")
         guess = self._console.read_number("What is your guess? ")
-
+        
         guess = self._move.number_to_list(guess)
-        self.rand_num = self._move.number_to_list(self.rand_num)
+        
+        if not isinstance(self.rand_num, list):
+            self.rand_num = [int(x) for x in str(self.rand_num)]
 
         comparison = self._move.compare_guess(guess, self.rand_num)
+        
+        if comparison == True:
+            self.is_winner = True
+            return
 
         self._board.print_line()
         for name in self.name_list:
             self._board.print_screen(name, guess, comparison)
         self._board.print_line()
-
-        if comparison == True:
-            self.is_winner = True
-
-    def _do_updates(self):
+        
         """Updates the important game information for each round of play. In
         this case, that means updating the board with the current move.
         Args:
