@@ -3,7 +3,7 @@ from time import sleep
 import raylibpy
 from game import constants
 # from game.food import Food
-from game.score_board import ScoreBoard
+# from game.score_board import ScoreBoard
 # from game.snake import Snake
 
 
