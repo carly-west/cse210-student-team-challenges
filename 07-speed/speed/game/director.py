@@ -33,7 +33,7 @@ class Director:
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
-        self._score_board = ScoreBoard()
+        # self._score_board = ScoreBoard()
         # self._snake = Snake()
 
     def start_game(self):
@@ -48,12 +48,12 @@ class Director:
         while self._keep_playing:
             # self._get_inputs()
             # self._do_updates()
-            # self._do_outputs()
+            self._do_outputs()
 
-            if self._input_service.window_should_close():
-                self._keep_playing = False
+        if self._input_service.window_should_close():
+            self._keep_playing = False
 
-        print("Game over!")
+        #     print("Game over!")
 
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -85,9 +85,9 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-        self._output_service.draw_actor(self._food)
-        self._output_service.draw_actors(self._snake.get_all())
-        self._output_service.draw_actor(self._score_board)
+        # self._output_service.draw_actor(self._food)
+        # self._output_service.draw_actors(self._snake.get_all())
+        # self._output_service.draw_actor(self._score_board)
         self._output_service.flush_buffer()
 
     def _handle_body_collision(self):
