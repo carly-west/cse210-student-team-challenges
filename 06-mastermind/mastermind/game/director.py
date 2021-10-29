@@ -17,8 +17,6 @@ class Director:
         self.name_list = []
         self.is_winner = False
 
-        
-
     def start_game(self):
         self._prepare_game()
         while self._keep_playing:
@@ -47,18 +45,17 @@ class Director:
 
         self._console.write(f"\n{player.get_name()}'s turn:")
         guess = self._console.read_number("What is your guess? ")
-        
+
         guess = self._move.number_to_list(guess)
-        
+
         if not isinstance(self.rand_num, list):
             self.rand_num = [int(x) for x in str(self.rand_num)]
 
         comparison = self._move.compare_guess(guess, self.rand_num)
 
         self._board.print_line()
-        
-        for name in self.name_list:
-            self._board.print_screen(name, guess, comparison)
+
+        self._board.print_screen(player.get_name(), guess, comparison)
         self._board.print_line()
 
         if comparison == True:
