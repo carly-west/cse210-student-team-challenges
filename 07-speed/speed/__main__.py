@@ -1,4 +1,8 @@
+import os
+os.environ['RAYLIB_BIN_PATH'] = '.'
+
 import raylibpy
+
 
 from game.director import Director
 from game.input_service import InputService
