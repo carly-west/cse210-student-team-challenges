@@ -2,9 +2,10 @@ import sys
 from game import constants
 import raylibpy
 
+
 class OutputService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state on the terminal. 
-    
+
     Stereotype: 
         Service Provider
 
@@ -14,7 +15,7 @@ class OutputService:
 
     def __init__(self):
         """The class constructor.
-        
+
         Args:
             self (OutputService): An instance of OutputService.
         """
@@ -26,13 +27,13 @@ class OutputService:
         """
         raylibpy.init_window(constants.MAX_X, constants.MAX_Y, title)
         raylibpy.set_target_fps(constants.FRAME_RATE)
-        
+
     def clear_screen(self):
         """Clears the screen in preparation for the next rendering.
 
         Args:
             self (OutputService): An instance of OutputService.
-        """ 
+        """
         raylibpy.begin_drawing()
         raylibpy.clear_background(raylibpy.WHITE)
 
@@ -52,10 +53,10 @@ class OutputService:
             color = raylibpy.BLACK
 
         raylibpy.draw_text(text,
-            x + constants.DEFAULT_TEXT_OFFSET,
-            y + constants.DEFAULT_TEXT_OFFSET,
-            constants.DEFAULT_FONT_SIZE,
-            color)
+                           x + constants.DEFAULT_TEXT_OFFSET,
+                           y + constants.DEFAULT_TEXT_OFFSET,
+                           constants.DEFAULT_FONT_SIZE,
+                           color)
 
     def draw_actor(self, actor):
         """Renders the given actor's text on the screen.
@@ -63,7 +64,7 @@ class OutputService:
         Args:
             self (OutputService): An instance of OutputService.
             actor (Actor): The actor to render.
-        """ 
+        """
         text = actor.get_text()
         position = actor.get_position()
         x = position.get_x()
@@ -76,10 +77,10 @@ class OutputService:
         if width > 0 and height > 0:
             self.draw_box(x, y, width, height)
             is_dark_text = False
-        
+
         if text != "":
             self.draw_text(x, y, text, is_dark_text)
-        #self._screen.print_at(text, x, y, 7) # WHITE
+        # self._screen.print_at(text, x, y, 7) # WHITE
         #raylibpy.draw_text(text, x, y, 16, raylibpy.BLUE)
 
     def draw_actors(self, actors):
@@ -88,14 +89,14 @@ class OutputService:
         Args:
             self (OutputService): An instance of OutputService.
             actors (list): The actors to render.
-        """ 
+        """
         for actor in actors:
             self.draw_actor(actor)
-    
+
     def flush_buffer(self):
         """Renders the screen.
 
         Args:
             self (OutputService): An instance of OutputService.
-        """ 
+        """
         raylibpy.end_drawing()

@@ -1,8 +1,11 @@
 from time import sleep
 
+import random
+
 import raylibpy
 from game import constants
-from game import word
+from game.word import Word
+from game.random_number import Random_Number
 # from game.food import Food
 # from game.score_board import ScoreBoard
 # from game.snake import Snake
@@ -34,6 +37,8 @@ class Director:
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
+        self._word = Word
+        self._random_number = Random_Number
         # self._score_board = ScoreBoard()
         # self._snake = Snake()
 
@@ -49,6 +54,7 @@ class Director:
         while self._keep_playing:
             # self._get_inputs()
             # self._do_updates()
+
             self._do_outputs()
 
         if self._input_service.window_should_close():
@@ -90,6 +96,9 @@ class Director:
         # self._output_service.draw_actors(self._snake.get_all())
         # self._output_service.draw_actor(self._score_board)
         self._output_service.flush_buffer()
+
+        # HERE
+        self._print_rand_word()
 
     def _handle_body_collision(self):
         """Handles collisions between the snake's head and body. Stops the game 
@@ -142,3 +151,13 @@ class Director:
 
             # get a new food
             self._food.reset()
+
+    def _print_rand_word(self):
+
+        rand_word = self._word.get_random_word(self)
+
+        # y_axis = self._random_number.random_number_yaxis()
+        # font_size = self._random_number.random_number_size()
+
+        self._output_service.put_word(
+            rand_word, random.randint(50, 350), random.randint(30, 100))
