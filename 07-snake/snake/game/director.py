@@ -2,10 +2,10 @@ from time import sleep
 
 import raylibpy
 from game import constants
-from game import word
-# from game.food import Food
-# from game.score_board import ScoreBoard
-# from game.snake import Snake
+# TODO: Uncomment this when you have finished the food class
+from game.food import Food
+from game.score_board import ScoreBoard
+from game.snake import Snake
 
 
 class Director:
@@ -30,12 +30,13 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        # self._food = Food()
+        # TODO: Uncomment this when you have finished the food class
+        self._food = Food()
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
-        # self._score_board = ScoreBoard()
-        # self._snake = Snake()
+        self._score_board = ScoreBoard()
+        self._snake = Snake()
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -44,17 +45,17 @@ class Director:
             self (Director): an instance of Director.
         """
         print("Starting game...")
-        self._output_service.open_window("Speed")
+        self._output_service.open_window("Snake")
 
         while self._keep_playing:
-            # self._get_inputs()
-            # self._do_updates()
+            self._get_inputs()
+            self._do_updates()
             self._do_outputs()
 
-        if self._input_service.window_should_close():
-            self._keep_playing = False
+            # if self._input_service.window_should_close():
+            #     self._keep_playing = False
 
-        #     print("Game over!")
+        # print("Game over!")
 
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -75,6 +76,7 @@ class Director:
         """
         self._snake.move()
         self._handle_body_collision()
+        # TODO: Uncomment this when you have finished the food class
         self._handle_food_collision()
 
     def _do_outputs(self):
@@ -86,9 +88,10 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-        # self._output_service.draw_actor(self._food)
-        # self._output_service.draw_actors(self._snake.get_all())
-        # self._output_service.draw_actor(self._score_board)
+        # TODO: Uncomment this when you have finished the food class
+        self._output_service.draw_actor(self._food)
+        self._output_service.draw_actors(self._snake.get_all())
+        self._output_service.draw_actor(self._score_board)
         self._output_service.flush_buffer()
 
     def _handle_body_collision(self):
@@ -122,6 +125,7 @@ class Director:
 
         return raylibpy.check_collision_recs(rectangle1, rectangle2)
 
+    # TODO: Uncomment this when you have finished the food class
     def _handle_food_collision(self):
         """Handles collisions between the snake's head and the food. Grows the 
         snake, updates the score and moves the food if there is one.
