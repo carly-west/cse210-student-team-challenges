@@ -2,14 +2,15 @@ from time import sleep
 
 import raylibpy
 from game import constants
-from game.food import Food
+# from game.food import Food
 from game.score_board import ScoreBoard
-from game.snake import Snake
+# from game.snake import Snake
+
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to control the sequence of play.
-    
+
     Stereotype:
         Controller
 
@@ -24,30 +25,30 @@ class Director:
 
     def __init__(self, input_service, output_service):
         """The class constructor.
-        
+
         Args:
             self (Director): an instance of Director.
         """
-        self._food = Food()
+        # self._food = Food()
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
         self._score_board = ScoreBoard()
-        self._snake = Snake()
-        
+        # self._snake = Snake()
+
     def start_game(self):
         """Starts the game loop to control the sequence of play.
-        
+
         Args:
             self (Director): an instance of Director.
         """
         print("Starting game...")
-        self._output_service.open_window("Snake")
+        self._output_service.open_window("Speed")
 
         while self._keep_playing:
-            self._get_inputs()
-            self._do_updates()
-            self._do_outputs()
+            # self._get_inputs()
+            # self._do_updates()
+            # self._do_outputs()
 
             if self._input_service.window_should_close():
                 self._keep_playing = False
@@ -74,7 +75,7 @@ class Director:
         self._snake.move()
         self._handle_body_collision()
         self._handle_food_collision()
-        
+
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means checking if there are stones left and declaring 
@@ -139,4 +140,4 @@ class Director:
             self._score_board.add_points(points)
 
             # get a new food
-            self._food.reset() 
+            self._food.reset()
