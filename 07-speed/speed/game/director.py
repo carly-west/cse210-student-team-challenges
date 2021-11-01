@@ -1,4 +1,5 @@
 from time import sleep
+import time
 
 import random
 
@@ -39,6 +40,7 @@ class Director:
         self._output_service = output_service
         self._word = Word
         self._random_number = Random_Number
+        self._rand_time = random.randint(1, 3)
         # self._score_board = ScoreBoard()
         # self._snake = Snake()
 
@@ -98,6 +100,9 @@ class Director:
         self._output_service.flush_buffer()
 
         # HERE
+
+        self._output_service.put_time_word(self._rand_time)
+
         self._print_rand_word()
 
     def _handle_body_collision(self):

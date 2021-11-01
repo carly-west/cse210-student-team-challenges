@@ -1,6 +1,7 @@
 import sys
 from game import constants
 import raylibpy
+import time
 
 
 class OutputService:
@@ -102,4 +103,8 @@ class OutputService:
         raylibpy.end_drawing()
 
     def put_word(self, word, y_axis, font_size):
+
         raylibpy.draw_text(word, 400, y_axis, font_size, raylibpy.BLACK)
+
+    def put_time_word(self, rand_time):
+        time.sleep(rand_time)
