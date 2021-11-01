@@ -1,3 +1,9 @@
+import os
+os.environ['RAYLIB_BIN_PATH'] = '.'
+
+import raylibpy
+
+
 import random
 
 
