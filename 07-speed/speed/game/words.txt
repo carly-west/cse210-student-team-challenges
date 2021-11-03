@@ -1358,6 +1358,7 @@ cargo
 caribbean
 caring
 carl
+Carly
 carlo
 carlos
 carmen
@@ -2525,6 +2526,7 @@ devices
 devil
 devon
 devoted
+Dexter
 df
 dg
 dh
@@ -4198,6 +4200,7 @@ hindu
 hint
 hints
 hip
+hippopotomonstrosesquippedaliophobia
 hire
 hired
 hiring
@@ -7677,6 +7680,7 @@ rocket
 rocks
 rocky
 rod
+Rodrigo
 roger
 rogers
 roland
@@ -8139,7 +8143,7 @@ side
 sides
 sie
 siemens
-sierra
+Sierra
 sig
 sight
 sigma
