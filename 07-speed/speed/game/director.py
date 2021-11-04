@@ -14,7 +14,7 @@ from game.point import Point
 
 
 class Director:
-    """A code template for a person who directs the game. The responsibility of 
+    """A code template for a person who directs the game. The responsibility of
     this class of objects is to control the sequence of play.
 
     Stereotype:
@@ -29,7 +29,6 @@ class Director:
         snake (Snake): The player or snake.
     """
 
-
     def __init__(self, input_service, output_service):
         """The class constructor.
 
@@ -42,7 +41,8 @@ class Director:
         self._output_service = output_service
         self._word = Word
         self._random_number = Random_Number
-        self._update = Update()
+        # self._update = Update()
+        # self._point = Point()
         # self._score_board = ScoreBoard()
         # self._snake = Snake()
 
@@ -77,7 +77,7 @@ class Director:
         self._snake.turn_head(direction)
 
     def _do_updates(self):
-        """Updates the important game information for each round of play. In 
+        """Updates the important game information for each round of play. In
         this case, that means checking for a collision and updating the score.
 
         Args:
@@ -89,8 +89,8 @@ class Director:
         Update()
 
     def _do_outputs(self):
-        """Outputs the important game information for each round of play. In 
-        this case, that means checking if there are stones left and declaring 
+        """Outputs the important game information for each round of play. In
+        this case, that means checking if there are stones left and declaring
         the winner.
 
         Args:
@@ -106,7 +106,7 @@ class Director:
         self._print_rand_word()
 
     def _handle_body_collision(self):
-        """Handles collisions between the snake's head and body. Stops the game 
+        """Handles collisions between the snake's head and body. Stops the game
         if there is one.
 
         Args:
@@ -137,7 +137,7 @@ class Director:
         return raylibpy.check_collision_recs(rectangle1, rectangle2)
 
     def _handle_food_collision(self):
-        """Handles collisions between the snake's head and the food. Grows the 
+        """Handles collisions between the snake's head and the food. Grows the
         snake, updates the score and moves the food if there is one.
 
         Args:
@@ -164,9 +164,12 @@ class Director:
         # y_axis = self._random_number.random_number_yaxis()
         # font_size = self._random_number.random_number_size()
 
-        self._output_service.put_word(
-            rand_word, random.randint(50, 350), random.randint(30, 100))
-        
-        initial_position = Point(600, 200)
+        # self._output_service.put_word(
+        #     rand_word, random.randint(50, 350), random.randint(30, 100))
+
+        position = 0
         for i in range(700):
-            self._update.update_word_position()
+            position += 10
+            # position = self._update.update_word_position(position)
+            raylibpy.draw_text("hello", position, 50, 30, raylibpy.BLACK)
+            raylibpy.clear_window_state()

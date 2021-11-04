@@ -3,18 +3,16 @@ from game.word import Word
 from game.point import Point
 
 
-class Update(Actor, Point):
+class Update():
     def __init__():
 
         pass
 
-    def update_word_position(self, word, initial_position):
+    def update_word_position(self):
 
         word_move = initial_position - (2, 0)
 
-        if word_move = (0, 200):
-
-
+        # if word_move = (0, 200):
 
     def remove_failed_words(self, word, list_words):
         failed_words = []
@@ -26,11 +24,7 @@ class Update(Actor, Point):
             #     word_list.remove(words)
             list_words.remove(words)
 
-        #if position is end_position remove from list
-        #once loop is done remove the words on the failed_words from the word_list
-        
-        #list.append
+        # if position is end_position remove from list
+        # once loop is done remove the words on the failed_words from the word_list
 
-
-
-
+        # list.append
