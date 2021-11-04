@@ -1,15 +1,21 @@
 from game.actor import Actor
 from game.word import Word
+from game.point import Point
 
 
-class Update(Actor):
+class Update(Actor, Point):
     def __init__():
 
         pass
 
-    def update_word_position():
+    def update_word_position(self, word, initial_position):
 
-        pass
+        word_move = initial_position - (2, 0)
+
+        if word_move = (0, 200):
+
+
+
     def remove_failed_words(self, word, list_words):
         failed_words = []
         for w in list_words:

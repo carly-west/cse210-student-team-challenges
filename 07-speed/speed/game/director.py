@@ -1,5 +1,4 @@
 from time import sleep
-import time
 
 import random
 
@@ -7,6 +6,8 @@ import raylibpy
 from game import constants
 from game.word import Word
 from game.random_number import Random_Number
+from game.update_services import Update
+from game.point import Point
 # from game.food import Food
 # from game.score_board import ScoreBoard
 # from game.snake import Snake
@@ -28,6 +29,7 @@ class Director:
         snake (Snake): The player or snake.
     """
 
+
     def __init__(self, input_service, output_service):
         """The class constructor.
 
@@ -40,7 +42,7 @@ class Director:
         self._output_service = output_service
         self._word = Word
         self._random_number = Random_Number
-        self._rand_time = random.randint(1, 3)
+        self._update = Update()
         # self._score_board = ScoreBoard()
         # self._snake = Snake()
 
@@ -81,9 +83,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._snake.move()
-        self._handle_body_collision()
-        self._handle_food_collision()
+        # self._snake.move()
+        # self._handle_body_collision()
+        # self._handle_food_collision()
+        Update()
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -100,9 +103,6 @@ class Director:
         self._output_service.flush_buffer()
 
         # HERE
-
-        self._output_service.put_time_word(self._rand_time)
-
         self._print_rand_word()
 
     def _handle_body_collision(self):
@@ -166,3 +166,7 @@ class Director:
 
         self._output_service.put_word(
             rand_word, random.randint(50, 350), random.randint(30, 100))
+        
+        initial_position = Point(600, 200)
+        for i in range(700):
+            self._update.update_word_position()
