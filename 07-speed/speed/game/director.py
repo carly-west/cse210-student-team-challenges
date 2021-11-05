@@ -110,8 +110,8 @@ class Director:
 
         self.input_string = ''.join(self.letter_input_list)
         if self.rand_word in self.input_string:
-            self.input_string = []
-            return self.input_string
+            self.letter_input_list = []
+         
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
