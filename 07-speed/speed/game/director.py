@@ -45,10 +45,15 @@ class Director:
         self._random_number = Random_Number
         self.position = 0
         self.rand_word = self._word.get_random_word(self)
-        self._score_board = ScoreBoard()
+
+        self.get_y = self._word.get_y(self)
+
+        # self._score_board = ScoreBoard()
         # self._update = Update()
         # self._point = Point()
         self.points = 0
+        self.y = random.randint(10, 380)
+
         # self._score_board = ScoreBoard()
         # self._snake = Snake()
 
@@ -92,9 +97,8 @@ class Director:
         # self._snake.move()
         # self._handle_body_collision()
         # self._handle_food_collision()
-        self.position += 4
+        self.position += 2
         self._print_rand_word(self.rand_word, self.position)
-        self._output_service.draw_text(10, 350, self.points)
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
@@ -180,4 +184,7 @@ class Director:
         #     rand_word, random.randint(50, 350), random.randint(30, 100))
 
         # position = self._update.update_word_position(position)
-        raylibpy.draw_text(rand_word, position, 50, 30, raylibpy.BLACK)
+
+        raylibpy.draw_text(rand_word, position, self.y, 30, raylibpy.BLACK)
+        raylibpy.draw_text(f'SCORE: {self.points}',
+                           10, 370, 30, raylibpy.BLACK)
