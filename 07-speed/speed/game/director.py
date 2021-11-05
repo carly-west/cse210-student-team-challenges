@@ -47,7 +47,7 @@ class Director:
         self.rand_word = ''
         self.letter_input_list = []
         self.input_string = ''
-
+        self._update_services = Update
         self.get_y = 0
 
         # self._score_board = ScoreBoard()
@@ -109,6 +109,7 @@ class Director:
             self.letter_input_list)
 
         self.input_string = ''.join(self.letter_input_list)
+        self.letter_input_list = self._update_services.compare(self.rand_word, self.input_string)
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In

@@ -24,6 +24,13 @@ class Update():
             #     word_list.remove(words)
             list_words.remove(words)
             
+
+    def compare(self, rand_word, input_word):
+        if rand_word in input_word:
+            return []
+
+
+
     # def get_y(self):
     #     self.y = random.randint(20,380)
     #     return self.y
