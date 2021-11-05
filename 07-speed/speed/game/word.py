@@ -17,3 +17,7 @@ class Word:
     def is_off_screen(self, position):
         if position >= 600:
             return True
+
+    def get_y(self):
+        self.y = random.randint(20,380)
+        return self.y

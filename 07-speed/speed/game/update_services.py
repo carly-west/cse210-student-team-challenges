@@ -1,7 +1,7 @@
 from game.actor import Actor
 from game.word import Word
 from game.point import Point
-
+import random
 
 class Update():
     def __init__():
@@ -23,6 +23,10 @@ class Update():
             # if words in failed_words == words in word_list:
             #     word_list.remove(words)
             list_words.remove(words)
+            
+    # def get_y(self):
+    #     self.y = random.randint(20,380)
+    #     return self.y
 
         # if position is end_position remove from list
         # once loop is done remove the words on the failed_words from the word_list
