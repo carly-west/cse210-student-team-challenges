@@ -99,6 +99,10 @@ class Director:
             self.letter_input_list = []
             self.rand_word = ''
 
+            self.position = 600
+            self.rand_word = self._word.get_random_word(self)
+            self.get_y = self._word.get_y(self)
+
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
         this case, that means checking if there are stones left and declaring
