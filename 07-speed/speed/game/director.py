@@ -43,8 +43,8 @@ class Director:
         self._output_service = output_service
         self._word = Word
         self._random_number = Random_Number
-        self.position = 0
-        self.rand_word = self._word.get_random_word(self)
+        self.position = 600
+        self.rand_word = ''
 
         self.get_y = self._word.get_y(self)
 
@@ -64,6 +64,7 @@ class Director:
             self (Director): an instance of Director.
         """
         print("Starting game...")
+        self.rand_word = self._word.get_random_word(self)
         self._output_service.open_window("Speed")
 
         while self._keep_playing:
@@ -97,7 +98,7 @@ class Director:
         # self._snake.move()
         # self._handle_body_collision()
         # self._handle_food_collision()
-        self.position += 2
+        self.position -= 2
         self._print_rand_word(self.rand_word, self.position)
 
     def _do_outputs(self):
@@ -119,7 +120,8 @@ class Director:
         if is_off_screen:
             self.points -= len(self.rand_word)
             is_off_screen = False
-            self.position = 0
+            self.position = 600
+            self.rand_word = self._word.get_random_word(self)
 
         # HERE
 

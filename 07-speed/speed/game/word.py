@@ -15,7 +15,7 @@ class Word:
         return self.rand_word
 
     def is_off_screen(self, position):
-        if position >= 600:
+        if position <= -150:
             return True
 
     def get_y(self):
