@@ -41,6 +41,7 @@ class Director:
         self._output_service = output_service
         self._word = Word
         self._random_number = Random_Number
+        self.position = 0
         # self._update = Update()
         # self._point = Point()
         # self._score_board = ScoreBoard()
@@ -57,7 +58,7 @@ class Director:
 
         while self._keep_playing:
             # self._get_inputs()
-            # self._do_updates()
+            self._do_updates()
 
             self._do_outputs()
 
@@ -86,7 +87,8 @@ class Director:
         # self._snake.move()
         # self._handle_body_collision()
         # self._handle_food_collision()
-        Update()
+        self.position += 5
+        self._print_rand_word(self.position)
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
@@ -103,7 +105,6 @@ class Director:
         self._output_service.flush_buffer()
 
         # HERE
-        self._print_rand_word()
 
     def _handle_body_collision(self):
         """Handles collisions between the snake's head and body. Stops the game
@@ -157,7 +158,7 @@ class Director:
             # get a new food
             self._food.reset()
 
-    def _print_rand_word(self):
+    def _print_rand_word(self, position):
 
         rand_word = self._word.get_random_word(self)
 
@@ -167,9 +168,5 @@ class Director:
         # self._output_service.put_word(
         #     rand_word, random.randint(50, 350), random.randint(30, 100))
 
-        position = 0
-        for i in range(700):
-            position += 10
-            # position = self._update.update_word_position(position)
-            raylibpy.draw_text("hello", position, 50, 30, raylibpy.BLACK)
-            raylibpy.clear_window_state()
+        # position = self._update.update_word_position(position)
+        raylibpy.draw_text("butt", position, 50, 30, raylibpy.BLACK)
