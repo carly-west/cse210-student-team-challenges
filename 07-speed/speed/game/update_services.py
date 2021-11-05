@@ -3,6 +3,7 @@ from game.word import Word
 from game.point import Point
 import random
 
+
 class Update():
     def __init__():
 
@@ -10,9 +11,6 @@ class Update():
 
     def update_word_position(self):
         pass
-        # word_move = initial_position - (2, 0)
-
-        # if word_move = (0, 200):
 
     def remove_failed_words(self, word, list_words):
         failed_words = []
@@ -20,22 +18,9 @@ class Update():
             if w._position <= -1:
                 failed_words.append(w)
         for words in failed_words:
-            # if words in failed_words == words in word_list:
-            #     word_list.remove(words)
+
             list_words.remove(words)
-            
 
     def compare(self, rand_word, input_word):
         if rand_word in input_word:
             return []
-
-
-
-    # def get_y(self):
-    #     self.y = random.randint(20,380)
-    #     return self.y
-
-        # if position is end_position remove from list
-        # once loop is done remove the words on the failed_words from the word_list
-
-        # list.append

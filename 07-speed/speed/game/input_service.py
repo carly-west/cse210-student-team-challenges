@@ -19,26 +19,6 @@ class InputService:
             self (InputService): An instance of InputService.
         """
 
-    # def get_letter(self):
-    #     """Gets the letter that was typed. If the enter key was pressed returns an asterisk.
-
-    #     Args:
-    #         self (InputService): An instance of InputService.
-
-    #     Returns:
-    #         string: The letter that was typed.
-    #     """
-    #     result = ""
-    #     event = self._screen.get_key()
-    #     if not event is None:
-    #         if event == 27:
-    #             sys.exit()
-    #         elif event == 10:
-    #             result = "*"
-    #         elif event >= 97 and event <= 122:
-    #             result = chr(event)
-    #     return result
-
     def get_letter(self):
         key_int = raylibpy.get_key_pressed()
 

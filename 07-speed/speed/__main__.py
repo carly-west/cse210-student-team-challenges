@@ -1,12 +1,11 @@
-import os
-os.environ['RAYLIB_BIN_PATH'] = '.'
+# import os
+# os.environ['RAYLIB_BIN_PATH'] = '.'
 
 from game.output_service import OutputService
 from game.input_service import InputService
 from game.director import Director
 import random
 import raylibpy
-
 
 
 # def main(screen):

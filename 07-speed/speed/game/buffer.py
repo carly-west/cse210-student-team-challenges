@@ -3,6 +3,7 @@ from game.actor import Actor
 from game import constants
 from game.point import Point
 
+
 class Buffer(Actor):
 
     def __init__(self):
@@ -11,17 +12,17 @@ class Buffer(Actor):
         self.set_position(position)
         self._update_letter("")
 
-    def compares(self, letter):        
+    def compares(self, letter):
 
         return self._user_letter == letter
 
     def get_word(self):
-        
+
         return self._user_letter
 
     def clear_buffer(self):
-        
-        self._user_letter = ""
+
+        self._user_letter = " "
 
     def _update_letter(self, new_letter):
         self._user_letter = new_letter
