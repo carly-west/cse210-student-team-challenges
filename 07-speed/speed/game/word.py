@@ -13,3 +13,7 @@ class Word:
         words = ['amigo', 'sasquach', 'geronimo', 'butter']
         self.rand_word = words[random.randint(0, 3)]
         return self.rand_word
+
+    def is_off_screen(self, position):
+        if position >= 600:
+            return True
