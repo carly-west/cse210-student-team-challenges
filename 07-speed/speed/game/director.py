@@ -87,7 +87,7 @@ class Director:
         # self._snake.move()
         # self._handle_body_collision()
         # self._handle_food_collision()
-        self.position += 5
+        self.position += 1
         self._print_rand_word(self.position)
 
     def _do_outputs(self):
