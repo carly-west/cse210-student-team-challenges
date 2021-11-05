@@ -109,7 +109,9 @@ class Director:
             self.letter_input_list)
 
         self.input_string = ''.join(self.letter_input_list)
-        self.letter_input_list = self._update_services.compare(self.rand_word, self.input_string)
+        if self.rand_word in self.input_string:
+            self.input_string = []
+            return self.input_string
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
@@ -201,5 +203,5 @@ class Director:
         raylibpy.draw_text(rand_word, position, self.y, 30, raylibpy.BLACK)
         raylibpy.draw_text(f'SCORE: {self.points}', 10, 10, 30, raylibpy.BLACK)
 
-        raylibpy.draw_text(f'{self.input_string}',
+        raylibpy.draw_text(f'GUESS: {self.input_string}',
                            10, 370, 20, raylibpy.BLACK)

@@ -19,5 +19,5 @@ class Word:
             return True
 
     def get_y(self):
-        self.y = random.randint(20,380)
+        self.y = random.randint(35,350)
         return self.y
