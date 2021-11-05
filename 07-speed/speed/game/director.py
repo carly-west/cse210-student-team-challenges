@@ -45,6 +45,7 @@ class Director:
         self._random_number = Random_Number
         self.position = 600
         self.rand_word = ''
+        self.letter_input_list = []
 
         self.get_y = 0
 
@@ -100,8 +101,11 @@ class Director:
         # self._handle_body_collision()
         # self._handle_food_collision()
         self.position -= 2
-        
+
         self._print_rand_word(self.rand_word, self.position)
+
+        self._input_service.get_letter_pressed(
+            self.letter_input_list)
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
@@ -192,4 +196,5 @@ class Director:
 
         raylibpy.draw_text(rand_word, position, self.y, 30, raylibpy.BLACK)
         raylibpy.draw_text(f'SCORE: {self.points}', 10, 10, 30, raylibpy.BLACK)
-        raylibpy.draw_text(f'GUESS: not done yet', 10, 370, 20, raylibpy.BLACK)
+        raylibpy.draw_text(f'{self.letter_input_list}',
+                           10, 370, 20, raylibpy.BLACK)
