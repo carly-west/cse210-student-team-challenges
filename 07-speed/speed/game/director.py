@@ -46,6 +46,7 @@ class Director:
         self.position = 600
         self.rand_word = ''
         self.letter_input_list = []
+        self.input_string = ''
 
         self.get_y = 0
 
@@ -106,6 +107,8 @@ class Director:
 
         self._input_service.get_letter_pressed(
             self.letter_input_list)
+
+        self.input_string = ''.join(self.letter_input_list)
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
@@ -196,5 +199,6 @@ class Director:
 
         raylibpy.draw_text(rand_word, position, self.y, 30, raylibpy.BLACK)
         raylibpy.draw_text(f'SCORE: {self.points}', 10, 10, 30, raylibpy.BLACK)
-        raylibpy.draw_text(f'{self.letter_input_list}',
+
+        raylibpy.draw_text(f'{self.input_string}',
                            10, 370, 20, raylibpy.BLACK)
