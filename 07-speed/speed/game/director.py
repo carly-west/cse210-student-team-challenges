@@ -46,7 +46,7 @@ class Director:
         self.position = 600
         self.rand_word = ''
 
-        self.get_y = self._word.get_y(self)
+        self.get_y = 0
 
         # self._score_board = ScoreBoard()
         # self._update = Update()
@@ -64,6 +64,7 @@ class Director:
             self (Director): an instance of Director.
         """
         print("Starting game...")
+        self.get_y = self._word.get_y(self)
         self.rand_word = self._word.get_random_word(self)
         self._output_service.open_window("Speed")
 
@@ -99,6 +100,7 @@ class Director:
         # self._handle_body_collision()
         # self._handle_food_collision()
         self.position -= 2
+        
         self._print_rand_word(self.rand_word, self.position)
 
     def _do_outputs(self):
@@ -122,22 +124,23 @@ class Director:
             is_off_screen = False
             self.position = 600
             self.rand_word = self._word.get_random_word(self)
+            self.get_y = self._word.get_y(self)
 
         # HERE
 
-    def _handle_body_collision(self):
-        """Handles collisions between the snake's head and body. Stops the game
-        if there is one.
+    # def _handle_body_collision(self):
+    #     """Handles collisions between the snake's head and body. Stops the game
+    #     if there is one.
 
-        Args:
-            self (Director): An instance of Director.
-        """
-        head = self._snake.get_head()
-        body = self._snake.get_collidable_segments()
-        for segment in body:
-            if head.get_position().equals(segment.get_position()):
-                self._keep_playing = False
-                break
+    #     Args:
+    #         self (Director): An instance of Director.
+    #     """
+    #     head = self._snake.get_head()
+    #     body = self._snake.get_collidable_segments()
+    #     for segment in body:
+    #         if head.get_position().equals(segment.get_position()):
+    #             self._keep_playing = False
+    #             break
 
     def _is_collision(self, first, second):
         x1 = first.get_position().get_x()
@@ -156,26 +159,26 @@ class Director:
 
         return raylibpy.check_collision_recs(rectangle1, rectangle2)
 
-    def _handle_food_collision(self):
-        """Handles collisions between the snake's head and the food. Grows the
-        snake, updates the score and moves the food if there is one.
+    # def _handle_food_collision(self):
+    #     """Handles collisions between the snake's head and the food. Grows the
+    #     snake, updates the score and moves the food if there is one.
 
-        Args:
-            self (Director): An instance of Director.
-        """
-        head = self._snake.get_head()
-        if self._is_collision(head, self._food):
-            # get the amount the food is worth
-            points = self._food.get_points()
+    #     Args:
+    #         self (Director): An instance of Director.
+    #     """
+    #     head = self._snake.get_head()
+    #     if self._is_collision(head, self._food):
+    #         # get the amount the food is worth
+    #         points = self._food.get_points()
 
-            # grow the tail by that much
-            self._snake.grow_tail(points)
+    #         # grow the tail by that much
+    #         self._snake.grow_tail(points)
 
-            # add to the score
-            self._score_board.add_points(points)
+    #         # add to the score
+    #         self._score_board.add_points(points)
 
-            # get a new food
-            self._food.reset()
+    #         # get a new food
+    #         self._food.reset()
 
     def _print_rand_word(self, rand_word, position):
 
@@ -188,5 +191,5 @@ class Director:
         # position = self._update.update_word_position(position)
 
         raylibpy.draw_text(rand_word, position, self.y, 30, raylibpy.BLACK)
-        raylibpy.draw_text(f'SCORE: {self.points}',
-                           10, 370, 30, raylibpy.BLACK)
+        raylibpy.draw_text(f'SCORE: {self.points}', 10, 10, 30, raylibpy.BLACK)
+        raylibpy.draw_text(f'GUESS: not done yet', 10, 370, 20, raylibpy.BLACK)
