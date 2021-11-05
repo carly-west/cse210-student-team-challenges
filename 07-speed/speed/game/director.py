@@ -8,6 +8,8 @@ from game.word import Word
 from game.random_number import Random_Number
 from game.update_services import Update
 from game.point import Point
+from game.score_board import ScoreBoard
+
 # from game.food import Food
 # from game.score_board import ScoreBoard
 # from game.snake import Snake
@@ -43,6 +45,7 @@ class Director:
         self._random_number = Random_Number
         self.position = 0
         self.rand_word = self._word.get_random_word(self)
+        self._score_board = ScoreBoard()
         # self._update = Update()
         # self._point = Point()
         self.points = 0
@@ -91,6 +94,7 @@ class Director:
         # self._handle_food_collision()
         self.position += 4
         self._print_rand_word(self.rand_word, self.position)
+        self._output_service.draw_text(10, 350, self.points)
 
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In
@@ -110,7 +114,6 @@ class Director:
             self.rand_word, self.position)
         if is_off_screen:
             self.points -= len(self.rand_word)
-            print(self.points)
             is_off_screen = False
             self.position = 0
 
