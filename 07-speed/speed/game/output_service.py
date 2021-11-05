@@ -44,20 +44,17 @@ class OutputService:
         """
         raylibpy.draw_rectangle(x, y, width, height, raylibpy.BLUE)
 
-    def draw_text(self, x, y, text, is_dark_text):
+    def draw_text(self, x, y, text):
         """
         Outputs the provided text at the desired location.
         """
-        color = raylibpy.WHITE
+        color = raylibpy.BLACK
 
-        if is_dark_text:
-            color = raylibpy.BLACK
-
-        raylibpy.draw_text(text,
-                           x + constants.DEFAULT_TEXT_OFFSET,
-                           y + constants.DEFAULT_TEXT_OFFSET,
-                           constants.DEFAULT_FONT_SIZE,
-                           color)
+        raylibpy.draw_text(str(text),
+                           x,
+                           y,
+                           40,
+                           raylibpy.BLACK)
 
     def draw_actor(self, actor):
         """Renders the given actor's text on the screen.

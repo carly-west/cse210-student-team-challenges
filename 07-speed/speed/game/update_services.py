@@ -9,8 +9,8 @@ class Update():
         pass
 
     def update_word_position(self):
-
-        word_move = initial_position - (2, 0)
+        pass
+        # word_move = initial_position - (2, 0)
 
         # if word_move = (0, 200):
 
