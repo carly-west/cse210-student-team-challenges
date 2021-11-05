@@ -9,26 +9,20 @@ class Buffer(Actor):
         super().__init__
         position = Point(0, constants.MAX_Y)
         self.set_position(position)
-        self._update_word("")
+        self._update_letter("")
 
-    def compares(self, word):        
+    def compares(self, letter):        
 
-        return self._user_word == word
+        return self._user_letter == letter
 
     def get_word(self):
         
-        return self._user_word
+        return self._user_letter
 
     def clear_buffer(self):
         
-        self._user_word = ""
+        self._user_letter = ""
 
-    def add_character(self, char):
-        self._update_word(self._user_word + char)
-
-    def remove_character(self):
-        self._update_word(self._user_word[:-1])
-
-    def _update_word(self, new_word):
-        self._user_word = new_word
-        self.set_text(f"Buffer: {self._user_word}")
+    def _update_letter(self, new_letter):
+        self._user_letter = new_letter
+        self.set_text(f"Buffer: {self._user_letter}")
