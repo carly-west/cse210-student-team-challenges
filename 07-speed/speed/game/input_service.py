@@ -50,7 +50,8 @@ class InputService:
         return key_string
 
     def get_letter_pressed(self, letter_list):
+
         key_int = raylibpy.get_key_pressed()
         if key_int != -1:
-            letter_list.append(key_int)
+            letter_list.append(chr(key_int))
             return letter_list
