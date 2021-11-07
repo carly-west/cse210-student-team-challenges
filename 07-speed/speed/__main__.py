@@ -1,5 +1,5 @@
-# import os
-# os.environ['RAYLIB_BIN_PATH'] = '.'
+import os
+os.environ['RAYLIB_BIN_PATH'] = '.'
 
 from game.output_service import OutputService
 from game.input_service import InputService
